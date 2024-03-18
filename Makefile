@@ -1,13 +1,20 @@
 initials = RL
-execs = string_01 tests_string
+execs = output/string_01 output/tests_string
 
 all: $(execs)
 .PHONY: all
 
 clean:
-	rm $(execs)
+	rm -r output
 
-% : %.cc
+run: output/string_01
+	./output/string_01
+
+run_tests: output/tests_string
+	./output/tests_string
+
+output/% : %.cc
+	mkdir -p $(@D)
 	g++ -g -std=c++11 $< -o $@
 
 string_01 :	string_01 string_01.h
