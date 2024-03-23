@@ -5,7 +5,9 @@
 using namespace std;
 
 auto main() -> int {
-  string str = "12321 dsa 12 312 dsa dasd sasd";
+  string str;
+  cout << "Enter a string" << endl;
+  getline(cin, str);
   string reverse_str = string_toys::reverse(str);
 
   cout << "Reversed string: " << reverse_str << endl;
