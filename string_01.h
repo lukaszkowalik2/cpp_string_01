@@ -83,22 +83,20 @@ auto search_substr(const std::string& str, const std::string& substr) -> int {
 auto custom_search(const char* str, const char* substr) -> int {
   int str_len = strlen(str);
   int substr_len = strlen(substr);
-  int found_index = -1;
 
   for (int i = 0; i <= str_len - substr_len; i++) {
-    bool match = true;
-    for (int j = 0; j < substr_len; j++) {
+    int j;
+
+    for (j = 0; j < substr_len; j++) {
       if (*(str + i + j) != *(substr + j)) {
-        match = false;
         break;
       }
     }
-    if (match) {
-      found_index = i;
-      break;
+    if (j == substr_len) {
+      return i;
     }
   }
-  return found_index;
+  return -1;
 }
 
 }  // namespace string_toys

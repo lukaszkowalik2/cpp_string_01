@@ -27,7 +27,7 @@ auto main() -> int {
   cout << "Substring index: " << index << endl;
 
   int index2 = string_toys::custom_search(str.c_str(), substr.c_str());
-  cout << "Index 2:" << index2 << endl;
+  cout << "Substring index with pointers: " << index2 << endl;
 
   return 0;
 }
