@@ -63,29 +63,29 @@ auto sum_digits(const std::string& str) -> int {
 }
 
 auto search_substr(const std::string& str, const std::string& substr) -> int {
-  int str_len = str.length();
-  int substr_len = substr.length();
+  size_t str_len = str.length();
+  size_t substr_len = substr.length();
 
-  for (int i = 0; i <= str_len - substr_len; i++) {
-    int j;
+  for (size_t i = 0; i <= str_len - substr_len; i++) {
+    size_t j;
     for (j = 0; j < substr_len; j++) {
       if (str[i + j] != substr[j]) {
         break;
       }
     }
     if (j == substr_len) {
-      return i;
+      return static_cast<int>(i);
     }
   }
   return -1;
 }
 
 auto custom_search(const char* str, const char* substr) -> int {
-  int str_len = strlen(str);
-  int substr_len = strlen(substr);
+  size_t str_len = strlen(str);
+  size_t substr_len = strlen(substr);
 
-  for (int i = 0; i <= str_len - substr_len; i++) {
-    int j;
+  for (size_t i = 0; i <= str_len - substr_len; i++) {
+    size_t j;
 
     for (j = 0; j < substr_len; j++) {
       if (*(str + i + j) != *(substr + j)) {
@@ -93,7 +93,7 @@ auto custom_search(const char* str, const char* substr) -> int {
       }
     }
     if (j == substr_len) {
-      return i;
+      return static_cast<int>(i);
     }
   }
   return -1;
